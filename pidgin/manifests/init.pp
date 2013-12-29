@@ -8,7 +8,7 @@ class pidgin {
     ensure  => installed,
   }
 
-  exec { 'restore_configs':
+  exec { 'restore_pidgin_configs':
     command   => "/usr/bin/scp -rp pi@10.0.0.18:pidgin/* /home/${::id}/.purple/",
     user      => $::id,
     requires  => Package[ 'pidgin' ],
