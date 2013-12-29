@@ -1,0 +1,9 @@
+[Dropbox]
+name=Dropbox Repository
+
+# Change to $releasever when they get around to creating
+# that repository. They're slow.
+#baseurl=http://linux.dropbox.com/fedora/$releasever/
+baseurl=http://linux.dropbox.com/fedora/19/
+
+gpgkey=https://linux.dropbox.com/fedora/rpm-public-key.asc
