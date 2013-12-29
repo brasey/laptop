@@ -1,7 +1,7 @@
 class profile {
-  include aliases
   include backups
   include bashgitprompt
+  include bashrc
   include dropbox
   include gimp
   include gitg
