@@ -2,7 +2,7 @@ class googlechrome {
 
   file { '/etc/yum.repos.d/google-chrome.repo':
     ensure  => file,
-    source => 'file:///etc/puppet/modules/googlechrome/files/google-chrome.repo',
+    source  => 'file:///etc/puppet/modules/googlechrome/files/google-chrome.repo',
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
@@ -10,7 +10,7 @@ class googlechrome {
 
   file { '/tmp/linux_signing_key.pub':
     ensure  => file,
-    source => 'file:///etc/puppet/modules/googlechrome/files/linux_signing_key.pub',
+    source  => 'file:///etc/puppet/modules/googlechrome/files/linux_signing_key.pub',
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
