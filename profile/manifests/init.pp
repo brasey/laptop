@@ -9,7 +9,7 @@ class profile {
   include gnometweaktool
   include googlechrome
   include gpg
-  include icedtea-web
+  include icedteaweb
   include infinality
   include keepassx
   include manheimpuppetrepos
