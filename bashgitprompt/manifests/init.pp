@@ -7,8 +7,4 @@ class bashgitprompt {
     require => Class[ 'gitrepos' ],
   }
 
-  file_line { "/home/${::id}/.bashrc":
-    line => '. ~/git/bash-git-prompt/bash-git-prompt/gitprompt.sh',
-  }
-
 }
