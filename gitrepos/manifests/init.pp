@@ -17,6 +17,7 @@ class gitrepos {
     command => '/bin/make',
     cwd     => '/usr/share/doc/git/contrib/credential/gnome-keyring',
     user    => 'root',
+    require => Class[ 'gcc' ],
   }
 
   exec { 'enable_gnome_keyring_connector':
