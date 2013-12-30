@@ -18,13 +18,14 @@ class gitrepos {
     command => '/bin/make',
     cwd     => '/usr/share/doc/git/contrib/credential/gnome-keyring',
     user    => 'root',
+    onlyif  => '/usr/bin/test ! -f /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring',
     require => Class[ 'gcc' ],
   }
 
   exec { 'enable_gnome_keyring_connector':
     command => '/usr/bin/git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring',
     user    => 'brasey',
-    onlyif  => '/usr/bin/grep -c gnome-keyring /home/brasey/.gitconfig',
+    onlyif  => '/usr/bin/test "$( /usr/bin/grep -c gnome-keyring /home/brasey/.gitconfig )" != 0',
   }
 
 }
