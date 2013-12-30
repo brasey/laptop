@@ -10,6 +10,7 @@ class dropbox {
 
   package { 'nautilus-dropbox':
     ensure  => installed,
+    require => File[ '/etc/yum.repos.d/dropbox.repo' ],
   }
 
 }
