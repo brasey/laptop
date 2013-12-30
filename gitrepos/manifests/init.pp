@@ -1,5 +1,6 @@
 class gitrepos {
 
+  include gcc
   $gitbase = '/home/brasey/git'
 
   file { $gitbase:
