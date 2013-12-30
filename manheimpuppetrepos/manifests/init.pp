@@ -18,7 +18,7 @@ class manheimpuppetrepos {
     require => Class[ 'gitrepos' ],
   }
 
-  file { '${gitbase}/puppet/hooks/pre-commit':
+  file { "${gitbase}/puppet/hooks/pre-commit":
     ensure  => file,
     source  => 'file:///etc/puppet/modules/manheimpuppetrepos/files/pre-commit',
     owner   => 'brasey',
@@ -27,7 +27,7 @@ class manheimpuppetrepos {
     require => Exec[ 'manheim_puppet' ],
   }
 
-  file { '${gitbase}/hieradata/hooks/pre-commit':
+  file { "${gitbase}/hieradata/hooks/pre-commit":
     ensure  => file,
     source  => 'file:///etc/puppet/modules/manheimpuppetrepos/files/pre-commit',
     owner   => 'brasey',
