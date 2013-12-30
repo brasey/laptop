@@ -2,7 +2,7 @@ class infinality {
 
   exec { 'install_repo':
     command => '/usr/bin/rpm -Uvh http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm',
-    onlyif  => '/usr/bin/test -f /etc/yum.repos.d/infinality.repo',
+    onlyif  => '/usr/bin/test ! -f /etc/yum.repos.d/infinality.repo',
     user    => 'root',
   }
 
