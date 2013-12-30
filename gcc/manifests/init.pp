@@ -4,4 +4,8 @@ class gcc {
     ensure  => installed,
   }
 
+  package { 'make':
+    ensure  => installed,
+  }
+
 }
