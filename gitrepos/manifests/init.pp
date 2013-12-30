@@ -29,4 +29,10 @@ class gitrepos {
     onlyif  => '/usr/bin/test "$( /usr/bin/grep -c gnome-keyring /home/brasey/.gitconfig )" != 0',
   }
 
+  exec { 'enable_simple_push':
+    command => '/usr/bin/git config --global push.default simple',
+    user    => 'brasey',
+    onlyif  => '/usr/bin/test "$( /usr/bin/grep -c \'\[push\]\' /home/brasey/.gitconfig )" != 0',
+  }
+
 }
