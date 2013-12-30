@@ -6,7 +6,7 @@ class manheimpuppetrepos {
     command => '/usr/bin/git clone http://github.ove.local/PlatformServices/puppet.git',
     cwd     => $gitbase,
     user    => 'brasey',
-    onlyif  => '/usr/bin/git remote -v | /usr/bin/grep -c fetch',
+    onlyif  => "/usr/bin/test ! -d ${gitbase}/puppet",
     require => Class[ 'gitrepos' ],
   }
 
@@ -14,7 +14,7 @@ class manheimpuppetrepos {
     command => '/usr/bin/git clone http://github.ove.local/PlatformServices/hieradata.git',
     cwd     => $gitbase,
     user    => 'brasey',
-    onlyif  => '/usr/bin/git remote -v | /usr/bin/grep -c fetch',
+    onlyif  => "/usr/bin/test ! -d ${gitbase}/puppet",
     require => Class[ 'gitrepos' ],
   }
 
