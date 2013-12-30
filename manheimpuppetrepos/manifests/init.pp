@@ -1,5 +1,6 @@
 class manheimpuppetrepos {
 
+  include gitrepos
   $gitbase = '/home/brasey/git'
 
   exec { 'manheim_puppet':
