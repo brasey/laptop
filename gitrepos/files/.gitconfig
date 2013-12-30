@@ -1,0 +1,7 @@
+[user]
+	name = Bob Rasey
+	email = bob.rasey@manheim.com
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+[push]
+	default = simple
