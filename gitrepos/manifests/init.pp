@@ -15,11 +15,12 @@ class gitrepos {
   }
 
   exec { 'make_gnome_keyring_connector':
-    command => '/bin/make',
-    cwd     => '/usr/share/doc/git/contrib/credential/gnome-keyring',
-    user    => 'root',
-    onlyif  => '/usr/bin/test ! -f /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring',
-    require => Class[ 'gcc' ],
+    command     => '/bin/make',
+    cwd         => '/usr/share/doc/git/contrib/credential/gnome-keyring',
+    user        => 'root',
+    environment => [ 'HOME=/home/brasey' ],
+    onlyif      => '/usr/bin/test ! -f /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring',
+    require     => Class[ 'gcc' ],
   }
 
   exec { 'enable_gnome_keyring_connector':
