@@ -1,6 +1,6 @@
 class bashrc {
 
-  file { '/home/$id/.bashrc':
+  file { '/home/brasey/.bashrc':
     ensure  => file,
     source  => 'file:///etc/puppet/modules/bashrc/files/.bashrc',
     owner   => 'brasey',
