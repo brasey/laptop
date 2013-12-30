@@ -5,7 +5,7 @@ class bashrc {
     source  => 'file:///etc/puppet/modules/bashrc/files/.bashrc',
     owner   => 'brasey',
     group   => 'brasey',
-    mode    => '0664',
+    mode    => '0644',
     require => Class[ 'bashgitprompt' ],
   }
 
