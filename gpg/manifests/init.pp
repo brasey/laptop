@@ -5,8 +5,8 @@ class gpg {
   }
 
   exec { 'fetch_files':
-    command => "/usr/bin/scp -rp pi@10.0.0.18:gpg/* /home/${::id}/.gnupg/",
-    user    => $::id,
+    command => '/usr/bin/scp -rp pi@10.0.0.18:gpg/* /home/brasey/.gnupg/',
+    user    => 'brasey',
     require => Package[ 'gnupg' ],
     onlyif  => '/usr/bin/gpg --list-secret-keys | /usr/bin/grep -c uid',
   }

@@ -4,11 +4,11 @@ class vim {
     ensure  => installed,
   }
 
-  file { "/home/${::id}/.vimrc":
+  file { '/home/brasey/.vimrc':
     ensure  => file,
     source  => 'file:///etc/puppet/modules/vim/files/.vimrc',
-    owner   => $::id,
-    group   => $::id,
+    owner   => 'brasey',
+    group   => 'brasey',
     mode    => '0664',
   }
 

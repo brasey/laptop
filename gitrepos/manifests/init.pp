@@ -1,11 +1,11 @@
 class gitrepos {
 
-  $gitbase = "/home/${::id}/git"
+  $gitbase = '/home/brasey/git'
 
   file { $gitbase:
     ensure  => directory,
-    owner   => $::id,
-    group   => $::id,
+    owner   => 'brasey',
+    group   => 'brasey',
     mode    => '0775',
   }
 
@@ -21,8 +21,8 @@ class gitrepos {
 
   exec { 'enable_gnome_keyring_connector':
     command => '/usr/bin/git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring',
-    user    => $::id,
-    onlyif  => "/usr/bin/grep -c gnome-keyring /home/${::id}/.gitconfig",
+    user    => 'brasey',
+    onlyif  => '/usr/bin/grep -c gnome-keyring /home/brasey/.gitconfig',
   }
 
 }
