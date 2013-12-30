@@ -20,7 +20,7 @@ class googlechrome {
   exec { 'import_signing_key':
     command => '/usr/bin/rpm --import /tmp/linux_signing_key.pub',
     user    => 'root',
-    onlyif  => 'test "$( /usr/bin/rpm -qi gpg-pubkey-7fac5991-* | /usr/bin/grep -c Google )" != 0',
+    onlyif  => '/usr/bin/test "$( /usr/bin/rpm -qi gpg-pubkey-7fac5991-* | /usr/bin/grep -c Google )" != 0',
     require => File[ '/tmp/linux_signing_key.pub' ],
   }
 
