@@ -5,7 +5,7 @@ Set up a new laptop.
 
 Do these things.
 
-```
+```bash
 sudo yum -y install puppet git
 ssh-keygen
 ssh-copy-id pi@10.0.0.18
