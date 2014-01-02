@@ -12,7 +12,7 @@ class pidgin {
     command => '/usr/bin/rsync -ave ssh pi@10.0.0.18:pidgin/ /home/brasey/.purple/',
     user    => 'brasey',
     require => Package[ 'pidgin' ],
-    onlyif  => '/usr/bin/test "$(/usr/bin/grep -c prpl-sipe .purple/accounts.xml)" = 0',
+    onlyif  => '/usr/bin/test ! -f .purple/accounts.xml',
   }
 
 }
