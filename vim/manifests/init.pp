@@ -1,6 +1,7 @@
 class vim {
 
   $solarized = 'yes'
+  $vimbase = '/home/brasey/.vim'
 
   File {
       ensure  => file,
@@ -29,8 +30,13 @@ class vim {
       source  => 'file:///etc/puppet/modules/vim/files/.vimrc.solarized',
     }
 
-    file { '/home/brasey/.vim/colors/solarized.vim':
-      source  => "file://${gitbase}/vim-colors-solarized/colors/solarized.vim"
+    file { "${vimbase}/colors":
+      ensure  => directory,
+      mode    => '0775',
+    }
+
+    file { "${vimbase}/colors/solarized.vim":
+      source  => "file://${gitbase}/vim-colors-solarized/colors/solarized.vim",
     }
 
   }
