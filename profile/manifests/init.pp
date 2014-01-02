@@ -3,6 +3,7 @@ class profile {
   include bashgitprompt
   include bashrc
   include dropbox
+  include gedit
   include gimp
   include gitg
   include gitrepos
