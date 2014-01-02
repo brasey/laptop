@@ -3,6 +3,10 @@ class gedit {
   $gitbase = '/home/brasey/git'
   $geditbase = '/home/brasey/.local/share/gedit'
 
+  Exec {
+    user    => 'brasey',
+  }
+
   File {
     ensure  => file,
     owner   => 'brasey',
