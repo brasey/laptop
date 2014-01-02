@@ -4,8 +4,10 @@ class gedit {
   $geditbase = '/home/brasey/.local/share/gedit'
 
   File {
+    ensure  => file,
     owner   => 'brasey',
     group   => 'brasey',
+    mode    => '0664',
   }
 
   package { 'gedit':
@@ -26,9 +28,12 @@ class gedit {
   }
 
   file { "${geditbase}/styles/solarized-dark.xml":
-    ensure  => file,
-    mode    => '0664',
     source  => "file://${gitbase}/solarized-gedit/solarized-dark.xml",
+    require => [ File[ "${geditbase}/styles" ], Exec[ 'clone_solarized-gedit_repo' ] ],
+  }
+
+  file { "${geditbase}/styles/solarized-light.xml":
+    source  => "file://${gitbase}/solarized-gedit/solarized-light.xml",
     require => [ File[ "${geditbase}/styles" ], Exec[ 'clone_solarized-gedit_repo' ] ],
   }
 
