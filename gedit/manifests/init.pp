@@ -32,9 +32,10 @@ class gedit {
     require => [ File[ "${geditbase}/styles" ], Exec[ 'clone_solarized-gedit_repo' ] ],
   }
 
-  file { "${geditbase}/styles/solarized-light.xml":
-    source  => "file://${gitbase}/solarized-gedit/solarized-light.xml",
-    require => [ File[ "${geditbase}/styles" ], Exec[ 'clone_solarized-gedit_repo' ] ],
+  exec { 'configscheme':
+    command => "/usr/bin/dconf write /org/gnome/gedit/preferences/editor/scheme \"'solarized-dark'\"",
+    onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read /org/gnome/gedit/preferences/editor/scheme)\" != \"'solarized-dark'\"",
+    require => File[ "${geditbase}/styles/solarized-dark.xml" ],
   }
 
 }
