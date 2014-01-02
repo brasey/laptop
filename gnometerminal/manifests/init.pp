@@ -18,7 +18,7 @@ class gnometerminal {
   exec { 'configterminal':
     command => '/tmp/terminal_config.sh',
     user    => 'brasey',
-    onlyif  => "test $(dconf read ${profile_path}/visible-name) != \"'brasey'\""
+    onlyif  => "/usr/bin/test $(/usr/bin/dconf read ${profile_path}/visible-name) != \"'brasey'\""
   }
 
 }
