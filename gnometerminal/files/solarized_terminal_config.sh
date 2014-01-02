@@ -1,9 +1,9 @@
 #!/bin/bash
 
-profile_id='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+profile_id='b1dcc9dd-5262-4d8d-a863-c897e6d979b8'
 profile_path="/org/gnome/terminal/legacy/profiles:/:${profile_id}"
 
-dconf write ${profile_path}/visible-name "'brasey'"
+dconf write ${profile_path}/visible-name "'solarized'"
 dconf write ${profile_path}/default-size-rows "42"
 dconf write ${profile_path}/default-size-columns "124"
 dconf write ${profile_path}/use-system-font "true"

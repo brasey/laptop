@@ -1,24 +1,54 @@
 class gnometerminal {
 
-  $profile_id = 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
-  $profile_path = "/org/gnome/terminal/legacy/profiles:/:${profile_id}"
+  $solarized = 'yes'
+  $tango_profile_id = 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+  $solarized_profile_id = 'b1dcc9dd-5262-4d8d-a863-c897e6d979b8'
+  $profile_path = '/org/gnome/terminal/legacy/profiles:'
+
+  File {
+    ensure  => file,
+    owner   => 'brasey',
+    group   => 'brasey',
+    mode    => '0700',
+  }
+
+  Exec {
+    user    => 'brasey',
+  }
 
   package { 'gnome-terminal':
     ensure  => installed,
   }
 
-  file { '/tmp/terminal_config.sh':
-    ensure  => file,
-    owner   => 'brasey',
-    group   => 'brasey',
-    mode    => '0700',
-    source  => 'file:///etc/puppet/modules/gnometerminal/files/terminal_config.sh',
+  file { '/tmp/tango_terminal_config.sh':
+    source  => 'file:///etc/puppet/modules/gnometerminal/files/tango_terminal_config.sh',
   }
 
-  exec { 'configterminal':
-    command => '/tmp/terminal_config.sh',
-    user    => 'brasey',
-    onlyif  => "\"/usr/bin/test $(/usr/bin/dconf read ${profile_path}/visible-name)\" != 'brasey'"
+  file { '/tmp/solarized_terminal_config.sh':
+    source  => 'file:///etc/puppet/modules/gnometerminal/files/solarized_terminal_config.sh',
+  }
+
+  exec { 'configtango':
+    command => '/tmp/tango_terminal_config.sh',
+    onlyif  => "\"/usr/bin/test $(/usr/bin/dconf read ${profile_path}/:${tango_profile_id}/visible-name)\" != 'tango'"
+  }
+
+  exec { 'configsolarized':
+    command => '/tmp/solarized_terminal_config.sh',
+    onlyif  => "\"/usr/bin/test $(/usr/bin/dconf read ${profile_path}/:${tango_profile_id}/visible-name)\" != 'tango'"
+  }
+
+  if $solarized == 'yes' {
+    exec { 'setdefault':
+      command => "/usr/bin/dconf write ${profile_path}/default ${solarized_profile_id}",
+      onlyif  => "\"/usr/bin/test $(/usr/bin/dconf read ${profile_path}/default)\" != 'solarized'"
+    }
+  }
+  else {
+    exec { 'setdefault':
+      command => "/usr/bin/dconf write ${profile_path}/default ${tango_profile_id}",
+      onlyif  => "\"/usr/bin/test $(/usr/bin/dconf read ${profile_path}/default)\" != 'tango'"
+    }
   }
 
 }
