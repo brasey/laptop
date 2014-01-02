@@ -16,7 +16,7 @@ class thunderbird {
   }
 
   exec { 'restore_thunderbird':
-    command => "/usr/bin/scp -rp pi@10.0.0.18:thunderbird/* ${profile_path}/",
+    command => "/usr/bin/rsync -ave ssh pi@10.0.0.18:thunderbird/ ${profile_path}/",
     user    => 'brasey',
     require => File[ $profile_path ],
     onlyif  => "/usr/bin/test \"$(/usr/bin/grep -c gmail ${profile_path}/prefs.js)\" = 0",
