@@ -19,7 +19,7 @@ class thunderbird {
     command => "/usr/bin/scp -rp pi@10.0.0.18:thunderbird/* ${profile_path}/",
     user    => 'brasey',
     require => File[ $profile_path ],
-    onlyif  => "/usr/bin/test \"$(/usr/bin/grep -c gmail ${profile_path}/prefs.js)\" != 0",
+    onlyif  => "/usr/bin/test \"$(/usr/bin/grep -c gmail ${profile_path}/prefs.js)\" = 0",
   }
 
 }
