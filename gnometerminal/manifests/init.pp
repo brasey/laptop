@@ -12,7 +12,6 @@ class gnometerminal {
     owner   => 'brasey',
     group   => 'brasey',
     mode    => '0700',
-    creates => '/tmp/terminal_config.sh',
     source  => 'file:///etc/puppet/modules/gnometerminal/files/terminal_config.sh',
   }
 
