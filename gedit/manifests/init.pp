@@ -38,8 +38,8 @@ class gedit {
 
   exec { 'configscheme':
     #command => '/usr/bin/dconf write /org/gnome/gedit/preferences/editor/scheme "\'solarized-dark\'"',
-    command => '/usr/bin/gsettings set org.gnome.gedit.preferences.editor scheme "\'solarized-dark\'"',
-    onlyif  => '/usr/bin/test \"$(/usr/bin/gsettings get org.gnome.gedit.preferences.editor scheme)\" != "\'solarized-dark\'"',
+    command => '/usr/bin/gsettings set org.gnome.gedit.preferences.editor scheme "\'solarizeddark\'"',
+    onlyif  => '/usr/bin/test \"$(/usr/bin/gsettings get org.gnome.gedit.preferences.editor scheme)\" != "\'solarizeddark\'"',
     #onlyif  => '/usr/bin/test \"$(/usr/bin/dconf read /org/gnome/gedit/preferences/editor/scheme)\" != "\'solarized-dark\'"',
     require => File[ "${geditbase}/styles/solarized-dark.xml" ],
   }
