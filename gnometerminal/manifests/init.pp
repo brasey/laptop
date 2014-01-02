@@ -5,7 +5,6 @@ class gnometerminal {
 
   $tango_profile_id = 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
   $solarized_profile_id = 'b1dcc9dd-5262-4d8d-a863-c897e6d979b8'
-  $profile_list = [ $tango_profile_id, $solarized_profile_id ]
 
   File {
     ensure  => file,
@@ -41,7 +40,7 @@ class gnometerminal {
   }
 
   exec { 'configlist':
-    command => "/usr/bin/dconf write ${profile_path}/list \"${profile_list}\"",
+    command => "/usr/bin/dconf write ${profile_path}/list \"[ \'${tango_profile_id}\', \'${solarized_profile_id}\' ]\"",
     onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/list | grep -c b1dcc9dd)\" = 0",
   }
 
