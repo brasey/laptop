@@ -9,7 +9,7 @@ class gedit {
   }
 
   package { 'gedit':
-    ensure  => intsalled,
+    ensure  => installed,
   }
 
   exec { 'clone_solarized-gedit_repo':
