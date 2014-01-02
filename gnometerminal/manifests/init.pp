@@ -36,7 +36,7 @@ class gnometerminal {
 
   exec { 'configsolarized':
     command => '/tmp/solarized_terminal_config.sh',
-    onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/:${tango_profile_id}/visible-name)\" != \"'solarized'\""
+    onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/:${solarized_profile_id}/visible-name)\" != \"'solarized'\""
   }
 
   exec { 'configlist':
@@ -47,13 +47,13 @@ class gnometerminal {
   if $solarized == 'yes' {
     exec { 'setdefault':
       command => "/usr/bin/dconf write ${profile_path}/default \"'${solarized_profile_id}'\"",
-      onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/default)\" != \"'solarized'\""
+      onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/default)\" != \"'${solarized_profile_id}'\""
     }
   }
   else {
     exec { 'setdefault':
       command => "/usr/bin/dconf write ${profile_path}/default \"'${tango_profile_id}'\"",
-      onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/default)\" != \"'tango'\""
+      onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${profile_path}/default)\" != \"'${tango_profile_id}'\""
     }
   }
 
