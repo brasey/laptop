@@ -18,6 +18,7 @@ class profile {
   include pdfmerge
   include pidgin
   include profile
+  include seahorse
   include sudoers
   include syntastic
   include thunderbird
