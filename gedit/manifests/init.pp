@@ -38,7 +38,7 @@ class gedit {
 
   exec { 'configscheme':
     command => '/usr/bin/gsettings set org.gnome.gedit.preferences.editor scheme "\'solarizeddark\'"',
-    onlyif  => '/usr/bin/test \"$(/usr/bin/gsettings get org.gnome.gedit.preferences.editor scheme)\" != "\'solarizeddark\'"',
+    onlyif  => '/usr/bin/test "$(/usr/bin/gsettings get org.gnome.gedit.preferences.editor scheme)" != "\'solarizeddark\'"',
     require => File[ "${geditbase}/styles/solarized-dark.xml" ],
   }
 
