@@ -6,6 +6,7 @@ class profile {
   include gimp
   include gitg
   include gitrepos
+  include gnometerminal
   include gnometweaktool
   include googlechrome
   include gpg
@@ -17,6 +18,7 @@ class profile {
   include pidgin
   include profile
   include sudoers
+  include syntastic
   include thunderbird
   include tig
   include vim
