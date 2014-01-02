@@ -1,6 +1,6 @@
 class dejadup {
 
-  $dejadup_path = '/org/gnome/dejadup'
+  $dejadup_path = 'org.gnome.DejaDup'
 
   package { 'deja-dup':
     ensure  => installed,
@@ -16,7 +16,7 @@ class dejadup {
 
   exec { 'configdejadup':
     command => '/tmp/configure_dejadup.sh',
-    onlyif  => "/usr/bin/test \"$(/usr/bin/dconf read ${dejadup_path}/backend)\" != \"'file'\""
+    onlyif  => "/usr/bin/test \"$(/usr/bin/gsettings get ${dejadup_path} backend)\" != \"'file'\""
   }
 
 }
