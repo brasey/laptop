@@ -1,7 +1,7 @@
 class gnometerminal {
 
   $profile_id = 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
-  $profile_path = "/com/gnome/terminal/legacy/profiles:/:${profile_id}"
+  $profile_path = "/org/gnome/terminal/legacy/profiles:/:${profile_id}"
 
   package { 'gnome-terminal':
     ensure  => installed,
