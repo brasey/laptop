@@ -2,6 +2,7 @@ class profile {
   include backups
   include bashgitprompt
   include bashrc
+  include dejadup
   include dropbox
   include gedit
   include gimp
