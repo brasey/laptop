@@ -1,12 +1,14 @@
 class thunderbird {
 
-  $profile_path = '/home/brasey/.thunderbird/hkoss3qt.default'
+  $base_dir = '/home/brasey/.thunderbird'
+  $profile = 'koss3qt.default'
+  $profile_path = "${base_dir}/${profile}"
 
   package { 'thunderbird':
     ensure  => installed,
   }
 
-  file { $profile_path:
+  file { [ $base_dir, $profile_path ]:
     ensure  => directory,
     owner   => 'brasey',
     group   => 'brasey',
