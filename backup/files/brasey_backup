@@ -1,1 +1,1 @@
-0 6 * * * brasey /home/brasey/bin/backup.sh
+0 6 * * * brasey /usr/bin/backup.sh
