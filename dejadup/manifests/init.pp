@@ -6,6 +6,10 @@ class dejadup {
     ensure  => installed,
   }
 
+  package { 'python-paramiko':
+    ensure  => installed,
+  }
+
   file { '/tmp/configure_dejadup.sh':
     ensure  => file,
     owner   => 'brasey',
