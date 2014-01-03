@@ -18,22 +18,30 @@ class manheimpuppetrepos {
     require => Class[ 'gitrepos' ],
   }
 
+  exec { 'clone_puppet-git-hooks':
+    command => '/usr/bin/git clone https://github.com/drwahl/puppet-git-hooks.git',
+    cwd     => $gitbase,
+    user    => 'brasey',
+    onlyif  => "/usr/bin/test ! -d ${gitbase}/puppet-git-hooks",
+    require => Class[ 'gitrepos' ],
+  }
+
   file { "${gitbase}/puppet/hooks/pre-commit":
     ensure  => file,
-    source  => 'file:///etc/puppet/modules/manheimpuppetrepos/files/pre-commit',
+    source  => "file://${gitbase}/puppet-git-hooks/pre-commit",
     owner   => 'brasey',
     group   => 'brasey',
     mode    => '0775',
-    require => Exec[ 'manheim_puppet' ],
+    require => [ Exec[ 'manheim_puppet' ], Exec[ 'clone_puppet-git-hooks' ] ],
   }
 
   file { "${gitbase}/hieradata/hooks/pre-commit":
     ensure  => file,
-    source  => 'file:///etc/puppet/modules/manheimpuppetrepos/files/pre-commit',
+    source  => "file://${gitbase}/puppet-git-hooks/pre-commit",
     owner   => 'brasey',
     group   => 'brasey',
     mode    => '0775',
-    require => Exec[ 'manheim_hieradata' ],
+    require => [ Exec[ 'manheim_hieradata' ], Exec[ 'clone_puppet-git-hooks' ] ],
   }
 
   package { 'rubygem-puppet-lint':
