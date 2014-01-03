@@ -19,6 +19,7 @@ class profile {
   include pidgin
   include profile
   include seahorse
+  include sshkeys
   include sudoers
   include syntastic
   include thunderbird
