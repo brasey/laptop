@@ -23,3 +23,5 @@ I'm backing up some things that this Puppetry uses ssh to restore. Things are
 * .gnupg
 * .purple
 * .thunderbird
+* .local/share/keyrings (Seahorse keyrings)
+* .ssh
