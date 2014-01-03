@@ -31,4 +31,8 @@ class manheimvpn {
     source  => 'file:///etc/puppet/modules/manheimvpn/files/jnc.pl',
   }
 
+  package { [ 'xterm','ld-linux.so.2','libstdc++.so.6','libz.so.1','libXext.so.6','libXrender.so.1','libXtst.so.6' ]:
+    ensure  => installed,
+  }
+
 }
