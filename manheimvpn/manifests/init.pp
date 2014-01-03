@@ -20,14 +20,14 @@ class manheimvpn {
     command => "/usr/bin/chown root:root ${base_dir}/network_connect/ncsvc",
     user    => 'root',
     require => Exec[ 'restore_manheimvpn' ],
-    onlyif  => "/usr/bin/test \"$(/usr/bin/sudo /usr/bin/test -O ${base_dir}/network_connect/ncsvc)\" != 0",
+    onlyif  => "/usr/bin/test \"$(/usr/bin/sudo /usr/bin/test -O ${base_dir}/network_connect/ncsvc)\" = 0",
   }
 
   exec { 'chmod_ncsvc':
     command => "/usr/bin/chmod 6711 ${base_dir}/network_connect/ncsvc",
     user    => 'root',
     require => Exec[ 'restore_manheimvpn' ],
-    onlyif  => "/usr/bin/test \"$(/usr/bin/test -u ${base_dir}/network_connect/ncsvc)\" != 0",
+    onlyif  => "/usr/bin/test \"$(/usr/bin/test -u ${base_dir}/network_connect/ncsvc)\" = 0",
   }
 
   file { '/usr/bin/jnc.pl':

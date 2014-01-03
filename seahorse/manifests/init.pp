@@ -22,7 +22,7 @@ class seahorse {
   exec { 'configseahorse':
     command => '/tmp/configure_seahorse.sh',
     user    => 'brasey',
-    onlyif  => "/usr/bin/test '$(/usr/bin/gsettings get org.gnome.seahorse server-auto-publish)' != \"'true'\"",
+    onlyif  => "/usr/bin/test '$(/usr/bin/gsettings get org.gnome.seahorse server-auto-publish)' = \"'true'\"",
   }
 
 }
