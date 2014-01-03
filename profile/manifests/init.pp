@@ -1,4 +1,5 @@
 class profile {
+  include backup
   include bashgitprompt
   include bashrc
   include dejadup
