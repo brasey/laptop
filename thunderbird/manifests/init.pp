@@ -15,6 +15,15 @@ class thunderbird {
     mode    => '0700',
   }
 
+  file { "${base_dir}/profiles.ini":
+    ensure  => file,
+    owner   => 'brasey',
+    group   => 'brasey',
+    mode    => '0664',
+    source  => 'file:///etc/puppet/modules/thunderbird/files/profiles.ini',
+    require => File[ $base_dir ],
+  }
+
   exec { 'restore_thunderbird':
     command => "/usr/bin/rsync -ave ssh pi@10.0.0.18:thunderbird/ ${profile_path}/",
     user    => 'brasey',
