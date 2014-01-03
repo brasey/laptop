@@ -16,6 +16,7 @@ class profile {
   include infinality
   include keepassx
   include manheimpuppetrepos
+  include manheimvpn
   include pdfmerge
   include pidgin
   include profile
