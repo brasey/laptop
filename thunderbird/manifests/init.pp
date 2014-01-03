@@ -1,7 +1,7 @@
 class thunderbird {
 
   $base_dir = '/home/brasey/.thunderbird'
-  $profile = 'koss3qt.default'
+  $profile = 'hkoss3qt.default'
   $profile_path = "${base_dir}/${profile}"
 
   package { 'thunderbird':
