@@ -27,4 +27,5 @@ class profile {
   include thunderbird
   include tig
   include vim
+  include virtualization
 }
