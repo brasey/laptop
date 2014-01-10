@@ -22,3 +22,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 let g:syntastic_puppet_lint_arguments=' --no-documentation-check --no-80chars-check'
+let g:syntastic_always_populate_loc_list=1
+
+map <c-n> :lnext<CR>
+map <c-p> :lprev<CR>
