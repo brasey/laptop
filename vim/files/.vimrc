@@ -21,3 +21,4 @@ set background=dark
 set expandtab
 set tabstop=2
 set shiftwidth=2
+let g:syntastic_puppet_lint_arguments=' --no-documentation-check --no-80chars-check'
