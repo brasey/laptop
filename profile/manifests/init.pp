@@ -26,6 +26,7 @@ class profile {
   include syntastic
   include thunderbird
   include tig
+  include todotxt
   include vim
   include virtualization
 }
