@@ -10,4 +10,9 @@ class todotxt {
     require => Class[ 'gitrepos' ],
   }
 
+  file { '/home/brasey/bin/todo.sh':
+    ensure  => link,
+    target  => '/home/brasey/git/todo.txt-cli/todo.sh',
+  }
+
 }
